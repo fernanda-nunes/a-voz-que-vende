@@ -1,0 +1,29 @@
+.outletGrid {
+  display: grid;
+  gap: 20px; 
+  border-radius: 20px; 
+  overflow: hidden;
+  grid-template-columns: repeat(1fr);
+    grid-template-areas:
+    "sobre "
+    "quemSouEu "
+    "depoimentos ";    
+}
+
+.sobre {
+  grid-area: sobre;
+  background-color:hsl(192, 20%, 90%);
+ 
+  
+}
+
+.quemSouEu {
+  grid-area: quemSouEu;
+ background-color: hsl(192, 20%, 90%);
+
+}
+
+.depoimentos {
+  grid-area: depoimentos;
+  background-color: hsl(192, 20%, 90%);
+}

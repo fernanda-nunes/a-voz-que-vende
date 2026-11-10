@@ -15,7 +15,7 @@ function RouteComponent() {
   return (
     <section >
 
-    <div className="container mx-auto flex flex-col items-center justify-center relative my-5 rounded-[20px] overflow-hidden py-20" >
+    <div className="container mx-auto flex flex-col items-center justify-center relative my-5 rounded-[20px] overflow-hidden py-20 bg-blue-200" >
       
    {/* Componente Sobre */}
          <div className="w-full sm:px-6 lg:px-8">

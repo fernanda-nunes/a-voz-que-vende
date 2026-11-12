@@ -164,7 +164,7 @@ export const Depoimentos = () => {
             </div>
             <div className="mt-4 px-2">
               <h3 className="font-semibold text-neutral-900">Ana Souza</h3>
-              <p className="text-xs text-neutral-500">Aluna do curso</p>
+              <p className="text-xs font-medium text-violet-600">Aluna do curso</p>
             </div>
           </div>
 

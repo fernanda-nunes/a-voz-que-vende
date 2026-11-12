@@ -163,7 +163,7 @@ export const Sobre = () => {
       {/* OBSERVAÇÃO */}
       <div className="mt-10 text-center lg:text-left">
         <p className="text-sm sm:text-base font-bold text-neutral-700">
-          Obs: Esse curso não forma locutor de rádio e não dá DRT.
+          Obs: Esse curso não forma locutor de rádio e não oferece DRT.
         </p>
       </div>
     </section>

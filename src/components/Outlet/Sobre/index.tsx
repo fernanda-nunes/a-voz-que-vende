@@ -1,87 +1,63 @@
 import { CardsAbout } from "./cardsAbout";  
-import Locucao from "../../../assets/videos/que-tal-locucao.mp3"; 
-import IconRita from "../../../assets/images/quem-eu-sou-rita.jpg";
 
-import { useRef, useState } from "react";
+import IconRita from "../../../assets/images/capa-video-sobre.jpg";
+import VideoApresentacao from "../../../assets/videos/apresentacao-curso-rita.mp4"; 
 
 export const Sobre = () => {
-  const [playing, setPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
-
-    if (playing) {
-      audioRef.current.pause();
-      setPlaying(false);
-    } else {
-      audioRef.current.play();
-      setPlaying(true);
-    }
-  };
-
   return (
-    <section className="about mx-auto max-w-7xl px-5 py-20 lg:px-8 ">
-      <div className="mt-5 grid items-center gap-12 lg:grid-cols-2">
+    <section className="about mx-auto max-w-7xl px-3 py-10 lg:px-5 lg:py-8"> 
+      
+      {/* ===================================================
+          TÍTULO PRINCIPAL (MAIS PARA O COMEÇO, COM MARGEM MAIOR)
+      ==================================================== */}
+      <div className="mb-8 pt-6 text-center lg:text-left">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight text-neutral-900">
+          Quer transformar sua voz em renda?
+        </h3>
+      </div>
+
+      {/* Grid principal com as duas colunas */}
+      <div className="grid items-start gap-8 lg:grid-cols-2">
 
         {/* ===================================================
-            COLUNA ESQUERDA — SOBRE O CURSO
+            COLUNA ESQUERDA — TEXTO DE DESTAQUE, DESCRIÇÃO, VÍDEO E BOTÃO
         ==================================================== */}
         <div className="esquerda w-full max-w-xl mx-auto lg:mx-0">
 
-          {/* LOCUÇÃO / ÁUDIO */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-            <img
-              src={IconRita}
-              alt="Rita Mirone - Locução Comercial"
-              className="h-24 w-24 shrink-0 rounded-full object-cover ring-4 ring-violet-100"
-            />
-
-            <audio
-              ref={audioRef}
-              src={Locucao}
-              onEnded={() => setPlaying(false)}
-            />
-
-            <button
-              type="button"
-              onClick={toggleAudio}
-              className="
-                flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3 
-                font-medium text-violet-700 shadow-sm ring-1 ring-violet-100 
-                transition-all duration-300 hover:bg-violet-100 hover:shadow-md cursor-pointer
-              "
-            >
-              {playing ? "Pausar" : "Ouça"}
-              <span className="text-base">{playing ? "⏸" : "▶"}</span>
-            </button>
-          </div>
-
-          {/* SUBTÍTULO */}
-          <h3 className="mt-8 text-2xl sm:text-3xl font-medium leading-tight text-neutral-900 text-center sm:text-left">
-            Quer transformar sua voz em renda?
-          </h3>
-
-          {/* TEXTO DE DESTAQUE */}
-          <p className="mt-4 font-medium text-violet-600 text-lg text-center sm:text-left">
+          {/* TEXTO DE DESTAQUE (NA COLUNA DA ESQUERDA) */}
+          <p className="font-medium text-violet-800 text-lg text-center sm:text-left">
             Você chegou ao lugar certo.
           </p>
 
           {/* DESCRIÇÃO */}
-          <p className="mt-4 max-w-lg text-base leading-7 text-neutral-600 text-center sm:text-left mx-auto sm:mx-0">
+          <p className="mt-4 text-base leading-7 text-neutral-600 text-center sm:text-left mx-auto sm:mx-0">
             Este é o curso de Locução Publicitária/Comercial criado por Rita Mirone, 
             locutora de TV e dubladora, para quem quer descobrir o potencial da própria voz 
             e aprender a lucrar com ela.
           </p>
 
-          {/* CTA */}
-          <div className="flex justify-center sm:justify-start mt-6">
+          {/* VÍDEO DE APRESENTAÇÃO */}
+          <div className="mt-8 overflow-hidden rounded-2xl bg-neutral-900 shadow-lg shadow-violet-100/60 ring-1 ring-violet-100">
+            <video
+              src={VideoApresentacao}
+              poster={IconRita}
+              controls
+              playsInline
+              preload="metadata"
+              className="aspect-video w-full object-cover"
+            >
+              Seu navegador não suporta a reprodução de vídeos.
+            </video>
+          </div>
+
+          {/* BOTÃO CTA (VOLTOU PARA ABAIXO DO VÍDEO, NA COLUNA DA ESQUERDA) */}
+          <div className="flex justify-center sm:justify-start mt-8">
             <button
               type="button"
               onClick={() => window.open("https://pay.kiwify.com.br/ZzSIGgV", "_blank")}
               className="
-                group mt-10 md:mt-16 inline-flex items-center gap-4 rounded-full bg-violet-500 
-                px-6 py-3 text-base font-medium text-white shadow-lg shadow-violet-200 
+                group inline-flex items-center gap-4 rounded-full bg-violet-500 
+                px-8 py-4 text-base font-medium text-white shadow-lg shadow-violet-200 
                 transition-all duration-300 hover:-translate-y-1 hover:bg-violet-700 
                 hover:shadow-xl hover:shadow-violet-200 cursor-pointer
               "
@@ -92,16 +68,11 @@ export const Sobre = () => {
               </span>
             </button>
           </div>
-
-          {/* CARDS CIRCULARES */}
-          <div className="mt-15 w-full">
-            <CardsAbout />
-          </div>
-
+        
         </div>
 
         {/* ===================================================
-            COLUNA DIREITA — DESTAQUE (POR QUE FAZER)
+            COLUNA DIREITA — BENEFÍCIOS, CARDS E OBSERVAÇÃO
         ==================================================== */}
         <div
           className="
@@ -156,16 +127,23 @@ export const Sobre = () => {
               </li>
             </ul>
           </div>
+
+          {/* CARDS CIRCULARES */}
+          <div className="mt-10 w-full"> 
+            <CardsAbout />
+          </div>
+
+          {/* OBSERVAÇÃO (LOGO ABAIXO DOS BENEFÍCIOS/CARDS) */}
+          <div className="mt-8 pt-6 border-t border-violet-200/60 text-center lg:text-left">
+            <p className="text-xs sm:text-sm font-semibold text-neutral-700">
+              Obs: Esse curso não forma locutor de rádio e não fornece DRT.
+            </p>
+          </div>
+
         </div>
 
       </div>
 
-      {/* OBSERVAÇÃO */}
-      <div className="mt-10 text-center lg:text-left">
-        <p className="text-sm sm:text-base font-bold text-neutral-700">
-          Obs: Esse curso não forma locutor de rádio e não fornece DRT.
-        </p>
-      </div>
     </section>
   );
 };

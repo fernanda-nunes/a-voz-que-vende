@@ -163,8 +163,8 @@ export const Depoimentos = () => {
               />
             </div>
             <div className="mt-4 px-2">
-              <h3 className="font-semibold text-neutral-900">Ana Souza</h3>
-              <p className="text-xs font-medium text-violet-600">Aluna do curso</p>
+              <h3 className="font-semibold text-neutral-900">Pedro Souza</h3>
+              <p className="text-xs font-medium text-violet-600">Aluno do curso</p>
             </div>
           </div>
 

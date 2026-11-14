@@ -1,129 +1,62 @@
+import { Globe, Sparkles, Award } from "lucide-react";
+
 export const CardsAbout = () => {
+  // Lista dos destaques/estatísticas do curso
+  const items = [
+    {
+      icon: <Globe className="w-6 h-6" />, 
+      label: "100% Online",
+      description: "Aulas liberadas semanalmente", 
+    },
+    {
+      icon: <Sparkles className="w-6 h-6" />,
+      label: " Prático",
+      description: "Aprenda no seu rítmo, sem provas",
+    },
+    {
+      icon: <Award className="w-6 h-6" />,
+      label: "Certificado",
+      description: "Certificado de conclusão de curso",
+    },
+  ];
+
   return (
-    <div
-      className="
-        grid
-        w-full
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-3
-        gap-6
-        sm:gap-4
-      "
-    >
-      {/* CARD 1 */}
-      <div
-        className="
-          group
-          mx-auto
-          flex
-          aspect-square
-          w-full
-          max-w-70
-          sm:max-w-full
-          flex-col
-          items-center
-          justify-center
-          rounded-full
-          border
-          border-[#ECE2DE]
-          bg-white/80
-          p-6
-          text-center
-          shadow-sm
-          backdrop-blur-sm
-          transition-all
-          duration-300
-          hover:-translate-y-2
-          hover:border-violet-200
-          hover:shadow-xl
-          hover:shadow-violet-100/50
-        "
-      >
-        <h4 className="mt-2 text-sm font-semibold text-neutral-800">
-          100% Online
-        </h4>
-        <div className="mt-1 h-1 w-6 rounded-full bg-[#D9A694]" />
-        <p className="mt-2 max-w-50 text-[12px] leading-4 text-neutral-600">
-          Aulas liberadas semanalmente.
-        </p>
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+      {items.map((item, index) => (
+        <div
+          key={index}
+          className="
+            group flex flex-col items-center text-center p-3 
+            rounded-3xl bg-white/80 backdrop-blur-sm 
+            border shadow-sm 
+            transition-all duration-300 
+            hover:-translate-y-1 hover:shadow-md 
+    
+          "
+        >
+          {/* Círculo de destaque com o número/ícone */}
+          <div 
+            className="
+              flex h-16 w-16 items-center justify-center 
+              rounded-full bg-violet-100 text-violet-700 
+              font-bold text-lg sm:text-xl shadow-inner
+              transition-transform duration-300 group-hover:scale-110
+            "
+          >
+            {item.icon}
+          </div>
 
-      {/* CARD 2 */}
-      <div
-        className="
-          group
-          mx-auto
-          flex
-          aspect-square
-          w-full
-          max-w-70
-          sm:max-w-full
-          flex-col
-          items-center
-          justify-center
-          rounded-full
-          border
-          border-[#ECE2DE]
-          bg-white/80
-          p-6
-          text-center
-          shadow-sm
-          backdrop-blur-sm
-          transition-all
-          duration-300
-          hover:-translate-y-2
-          hover:border-violet-200
-          hover:shadow-xl
-          hover:shadow-violet-100/50
-        "
-      >
-        <h4 className="mt-2 text-sm font-semibold text-neutral-800">
-          Conteúdo Prático
-        </h4>
-        <div className="mt-1 h-1 w-6 rounded-full bg-[#D9A694]" />
-        <p className="mt-2 max-w-50 text-[12px] leading-4 text-neutral-600">
-          Aprenda no seu ritmo, sem provas nem tarefas.
-        </p>
-      </div>
+          {/* Título do card */}
+          <h4 className="mt-3 font-semibold text-neutral-900 text-sm sm:text-base">
+            {item.label}
+          </h4>
 
-      {/* CARD 3 */}
-      <div
-        className="
-          group
-          mx-auto
-          flex
-          aspect-square
-          w-full
-          max-w-70
-          sm:max-w-full
-          flex-col
-          items-center
-          justify-center
-          rounded-full
-          border
-          border-[#ECE2DE]
-          bg-white/80
-          p-6
-          text-center
-          shadow-sm
-          backdrop-blur-sm
-          transition-all
-          duration-300
-          hover:-translate-y-2
-          hover:border-violet-200
-          hover:shadow-xl
-          hover:shadow-violet-100/50
-        "
-      >
-        <h4 className="mt-2 text-sm font-semibold text-neutral-800">
-          Certificado
-        </h4>
-        <div className="mt-1 h-1 w-6 rounded-full bg-[#D9A694]" />
-        <p className="mt-2 max-w-50 text-[12px] leading-4 text-neutral-600">
-          Receba seu certificado ao finalizar o curso.
-        </p>
-      </div>
+          {/* Descrição secundária */}
+          <p className="text-xs text-neutral-500 mt-0.5 leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
